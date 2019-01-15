@@ -1,9 +1,14 @@
 import React from "react";
 import "./style.scss";
 
-const Checkbox = ({ title, completed, id }) => (
+const Checkbox = ({ title, checked, id, taskCompleted }) => (
   <div className="checkbox">
-    <input type="checkbox" checked={completed} id={id} />
+    <input
+      type="checkbox"
+      checked={checked}
+      id={id}
+      onChange={() => taskCompleted(id)}
+    />
     <label className="task__name" htmlFor={id}>
       {title}
     </label>

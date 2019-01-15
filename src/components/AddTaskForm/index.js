@@ -25,8 +25,9 @@ class AddTaskForm extends React.Component {
     let error = null;
 
     const { addNewTask, userId } = this.props;
+    const { taskName } = this.state;
 
-    if (!this.state.taskName.length) {
+    if (!taskName.length) {
       error = "Введите название задачи";
     }
 
@@ -44,7 +45,7 @@ class AddTaskForm extends React.Component {
       });
     }
 
-    addNewTask(userId);
+    addNewTask(userId, taskName);
   };
 
   taskNameHandleChange = e => {
