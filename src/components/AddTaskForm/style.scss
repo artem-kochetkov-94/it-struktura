@@ -4,13 +4,22 @@
   max-width: 750px !important;
   border-radius: 0 !important;
   box-shadow: 0 6px 15px rgba(207, 211, 218, 0.35);
+
+  @media (max-width: 479px) {
+    margin-right: 6px !important;
+    margin-left: 6px !important;
+  }
 }
 
 .add-task-form {
   width: 100%;
   max-width: 534px;
   margin: 0 auto;
-  padding: 104px 0px 75px;
+  padding: 104px 15px 75px;
+
+  @media (max-width: 479px) {
+    padding: 60px 10px 40px;
+  }
 }
 
 .add-task-form__title {
@@ -18,10 +27,19 @@
   font-size: 33px;
   text-align: center;
   color: #3e434f;
+
+  @media (max-width: 479px) {
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
 }
 
 .add-task-form__form-group {
   margin-bottom: 62px;
+
+  @media (max-width: 479px) {
+    margin-bottom: 40px;
+  }
 }
 
 .add-task-form__button {
@@ -41,6 +59,14 @@
   background-color: transparent;
   cursor: pointer;
 
+  @media (max-width: 479px) {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border-width: 4px;
+  }
+
   &::before,
   &::after {
     content: "";
@@ -50,6 +76,11 @@
     width: 30px;
     height: 5px;
     background-color: #eef0f5;
+
+    @media (max-width: 479px) {
+      width: 20px;
+      height: 3px;
+    }
   }
 
   &::before {

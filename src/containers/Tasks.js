@@ -1,5 +1,8 @@
 import React from "react";
 import Tasks from "../components/Tasks";
+import fetch from "isomorphic-fetch";
+
+require("es6-promise").polyfill();
 
 export default class extends React.Component {
   state = {
@@ -12,11 +15,10 @@ export default class extends React.Component {
   }
 
   fetchTasksByUserId = userId => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`)
+    return fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`)
       .then(response => response.json())
       .then(response => {
         const tasks = response.filter(task => task.userId === userId);
-
         const tasksNormalize = tasks.reduce((accomulator, task) => {
           return {
             ...accomulator,
@@ -32,7 +34,7 @@ export default class extends React.Component {
   };
 
   addNewTask = (userId, title) => {
-    fetch(`https://jsonplaceholder.typicode.com/todos`, {
+    return fetch(`https://jsonplaceholder.typicode.com/todos`, {
       method: "POST",
       body: {
         title,
@@ -40,7 +42,9 @@ export default class extends React.Component {
         completed: false
       }
     })
-      .then(response => response.json())
+      .then(response => {
+        return response.json();
+      })
       .then(response => {
         const { id } = response;
         this.setState({
@@ -72,9 +76,13 @@ export default class extends React.Component {
   };
 
   render() {
+    const tasksArray = Object.keys(this.state.tasks).map(
+      id => this.state.tasks[id]
+    );
+
     return (
       <Tasks
-        tasks={Object.values(this.state.tasks)}
+        tasks={tasksArray}
         userId={this.state.userId}
         addNewTask={this.addNewTask}
         taskCompleted={this.taskCompleted}

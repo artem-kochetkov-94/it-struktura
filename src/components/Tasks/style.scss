@@ -2,16 +2,30 @@
 
 .tasks {
   position: relative;
-  width: 750px;
+  width: 100%;
+  max-width: 750px;
   margin: 0 auto;
   box-shadow: 0 6px 15px rgba(207, 211, 218, 0.35);
   background-color: #ffffff;
+
+  @media (max-width: 1023px) {
+    max-width: 600px;
+  }
 }
 
 .tasks-list {
   max-height: 800px;
   padding: 104px 100px 205px 105px;
   overflow-y: auto;
+
+  @media (max-width: 1023px) {
+    padding: 50px 30px 150px;
+  }
+
+  @media (max-width: 479px) {
+    max-height: 500px;
+    padding: 30px 15px 60px;
+  }
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -41,10 +55,28 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
 
+  @media (max-width: 1023px) {
+    width: 130px;
+    height: 130px;
+  }
+
+  @media (max-width: 479px) {
+    width: 60px;
+    height: 60px;
+  }
+
   &::after {
     content: "+";
     font-size: 100px;
     color: $color-primary-dark;
     font-family: $font-base;
+
+    @media (max-width: 1023px) {
+      font-size: 80px;
+    }
+
+    @media (max-width: 479px) {
+      font-size: 45px;
+    }
   }
 }
