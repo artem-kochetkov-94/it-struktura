@@ -1,0 +1,41 @@
+@import "../../style/variables";
+
+.checkbox {
+  position: relative;
+
+  input {
+    display: none;
+
+    &:checked + {
+      .task__name {
+        color: #bdc0ca;
+
+        &::before {
+          border-color: $color-primary;
+          background-image: url("../../img/checked.png");
+        }
+      }
+    }
+  }
+}
+
+.task__name {
+  display: block;
+  padding-right: 100px;
+  font-size: 33px;
+  color: #3e434f;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -11px;
+    right: 0;
+    width: 59px;
+    height: 59px;
+    border-radius: 50%;
+    border: 7px solid #eef0f5;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
