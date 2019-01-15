@@ -1,7 +1,6 @@
 import React from "react";
 import Tasks from "../components/Tasks";
 import fetch from "isomorphic-fetch";
-
 require("es6-promise").polyfill();
 
 export default class extends React.Component {

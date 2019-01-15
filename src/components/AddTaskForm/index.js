@@ -46,6 +46,9 @@ class AddTaskForm extends React.Component {
     }
 
     addNewTask(userId, taskName);
+    this.setState({
+      open: false
+    });
   };
 
   taskNameHandleChange = e => {
